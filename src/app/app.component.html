@@ -1,1 +1,29 @@
-<router-outlet></router-outlet>
+  
+<div class="container p-4">
+	<div class="row">
+	  <div class="col-md-6">
+		<div class="card card-body">
+		<img width="180" alt="Angular Logo" src="https://images.vexels.com/media/users/3/135675/isolated/preview/16f4c29c562be3910fca66d182d42f04-blue-cloud-weather-icon-by-vexels.png" class="mx-auto">
+		  <form (submit)="submitLocation(cityName, cityCode)">
+			<input type="text" placeholder="City Name" class="form-control" autofocus #cityName>
+			<input type="text" placeholder="City Code" class="form-control" #cityCode>
+			<button class="btn btn-primary btn-block mt-2">
+			  Get Weather
+			</button>
+		  </form>
+		</div>
+	  </div>
+	  <div class="col-md-6">
+		<div *ngIf="weather" class="card card-body text-center">
+		  <h1 class="h4">Weather Information</h1>
+		  <p>City: {{weather.name}}</p>
+		  <p>Latitude: {{weather.coord.lat}}</p>
+		  <p>Longitude: {{weather.coord.lon}}</p>
+		  <p>Humidity: {{weather.main.humidity}}</p>
+		  <p>Pressure: {{weather.main.pressure}}</p>
+		  <p>Temperature: {{weather.main.temp}} °C</p>
+		  <p>Description: {{weather.weather[0].description }}</p>
+		</div>
+	  </div>
+	</div>
+  </div>
